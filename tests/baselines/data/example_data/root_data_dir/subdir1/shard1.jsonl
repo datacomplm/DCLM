@@ -1,0 +1,7 @@
+{"text": "This is a test. It has two sentences and a lottttt of text.", "url": "http://example.com/text1"}
+{"text": "This is another test with only one long sentence.", "url": "http://example.com/text2"}
+{"text": "A single sentence!!!", "url": "http://example.com/text3"}
+{"text": "Long sentence. Many sentences but mostly non alphanumeric. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "url": "http://example.com/text4"}
+{"text": "<javascript> helloWorld(). foo('a'). bar(1234).", "url": "http://example.com/text5"}
+{"text": "three. short. sents.", "url": "http://example.com/text6"}
+{"text": "Valid line.\n<javascript> helloWorld(). foo('a'). bar(1234).\nAnother valid line", "url": "http://example.com/text7"}

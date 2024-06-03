@@ -1,0 +1,7 @@
+{"text": "This is a test. It has two sent", "url": "http://example.com/text1", "language_id_whole_page_langdetect": {"en": 0.999997}, "mock_text_type": "text", "chunk": 0}
+{"text": "sentences and a lottttt of text.", "url": "http://example.com/text1", "language_id_whole_page_langdetect": {"en": 0.999997}, "mock_text_type": "text", "chunk": 1}
+{"text": "This is another test with only one long sent", "url": "http://example.com/text2", "language_id_whole_page_langdetect": {"en": 0.999998}, "mock_text_type": "text", "chunk": 0}
+{"text": "sentence.", "url": "http://example.com/text2", "language_id_whole_page_langdetect": {"en": 0.999998}, "mock_text_type": "text", "chunk": 1}
+{"text": "Long sent", "url": "http://example.com/text4", "language_id_whole_page_langdetect": {"en": 0.999996}, "mock_text_type": "text", "chunk": 0}
+{"text": "sentence. Many sent", "url": "http://example.com/text4", "language_id_whole_page_langdetect": {"en": 0.999996}, "mock_text_type": "text", "chunk": 1}
+{"text": "sentences but mostly non alphanumeric. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "url": "http://example.com/text4", "language_id_whole_page_langdetect": {"en": 0.999996}, "mock_text_type": "text", "chunk": 2}
