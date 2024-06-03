@@ -29,6 +29,22 @@ DCLM enables researchers to experiment with various dataset construction strateg
 
 For more details, please refer to our [paper](https://placeholder-link-to-paper.com).
 
+## Leaderboard
+The DCLM leaderboard showcases the performance of models trained on various scales and datasets. The leaderboard is updated regularly with the latest submissions from the community. To view the leaderboard.
+
+| Model/Data  | Params | Tokens | LowVar | MMLU  | Aggregated score |
+|-------------|--------|--------|--------|-------|------------------|
+| Gemma       | 7B     | 6T     | **0.657** | 0.643 | 0.556            |
+| Llama-2     | 7B     | 2T     | 0.589  | 0.458 | 0.490            |
+| Llama-3     | 8B     | 15T    | 0.654  | **0.662** | 0.578            |
+| Mistral     | 7B     | 8T     | 0.652  | 0.633 | **0.579**        |
+| RedPajama   | 1B     | 29B    | 0.412  | 0.243 | 0.330            |
+| RedPajama   | 7B     | 138B   | 0.481  | 0.252 | 0.363            |
+| **Ours**    | **1B** | **29B** | **0.452** | **0.263** | **0.348**            |
+| **Ours**    | **7B** | **138B** | **0.546** | **0.342** | **0.426**            |
+| **Ours**    | **7B** | **276B** | **0.582** | **0.491** | **0.475**            |
+| **Ours**    | **7B** | **2T** | **0.628** | **0.607** | **0.540**            |
+
 ## Getting Started
 To get started with DCLM, follow these steps:
 
