@@ -1,4 +1,4 @@
-# DCLM (formerly known as DCNLP)
+# DataComp-LM (DCLM)
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -11,11 +11,12 @@
 8. [Evaluation](#evaluation)
 9. [Submission](#submission)
 10. [Contributing](#contributing)
-11. [License](#license)
+11. [How to Cite Us](#how-to-cite-us)
+12. [License](#license)
 
 ## Introduction
 
-DCLM (DataComp-LM) is a comprehensive framework designed for building and training large language models (LLMs) with diverse datasets. It offers a standardized corpus of over 300T unfiltered tokens from CommonCrawl, effective pretraining recipes based on the open_lm framework, and an extensive suite of over 50 evaluations. This repository provides tools and guidelines for processing raw data, tokenizing, shuffling, training models, and evaluating their performance. 
+DataComp-LM (DCLM) is a comprehensive framework designed for building and training large language models (LLMs) with diverse datasets. It offers a standardized corpus of over 300T unfiltered tokens from CommonCrawl, effective pretraining recipes based on the open_lm framework, and an extensive suite of over 50 evaluations. This repository provides tools and guidelines for processing raw data, tokenizing, shuffling, training models, and evaluating their performance. 
 
 DCLM enables researchers to experiment with various dataset construction strategies across different compute scales, from 411M to 7B parameter models. Our baseline experiments show significant improvements in model performance through optimized dataset design.
 
@@ -32,18 +33,18 @@ For more details, please refer to our [paper](https://placeholder-link-to-paper.
 ## Leaderboard
 The DCLM leaderboard showcases the performance of models trained on various scales and datasets. The leaderboard is updated regularly with the latest submissions from the community. To view the leaderboard.
 
-| Model/Data  | Params | Tokens | LowVar | MMLU  | Aggregated score |
-|-------------|--------|--------|--------|-------|------------------|
-| Gemma       | 7B     | 6T     | **0.657** | 0.643 | 0.556            |
-| Llama-2     | 7B     | 2T     | 0.589  | 0.458 | 0.490            |
-| Llama-3     | 8B     | 15T    | 0.654  | **0.662** | 0.578            |
-| Mistral     | 7B     | 8T     | 0.652  | 0.633 | **0.579**        |
-| RedPajama   | 1B     | 29B    | 0.412  | 0.243 | 0.330            |
-| RedPajama   | 7B     | 138B   | 0.481  | 0.252 | 0.363            |
-| **Ours**    | **1B** | **29B** | **0.452** | **0.263** | **0.348**            |
-| **Ours**    | **7B** | **138B** | **0.546** | **0.342** | **0.426**            |
-| **Ours**    | **7B** | **276B** | **0.582** | **0.491** | **0.475**            |
-| **Ours**    | **7B** | **2T** | **0.628** | **0.607** | **0.540**            |
+| Model       | Params | Tokens | Open dataset? | LowVar | MMLU | AggregatedScore |
+|-------------|--------|--------|---------------|--------|------|-----------------|
+| Llama2      | 7B     | 2T     | ✗             | 49.2   | 45.8 | 37.5            |
+| Mistral-0.3 | 7B     | ?      | ✗             | 57.0   | 62.7 | 46.1            |
+| Llama3      | 8B     | 15T    | ✗             | 57.6   | 66.2 | 46.3            |
+| Gemma       | 7B     | 6T     | ✗             | 57.8   | 64.3 | 44.6            |
+| Falcon      | 7B     | 1T     | ✓             | 44.1   | 27.4 | 25.1            |
+| OLMo-1.7    | 7B     | 2T     | ✓             | 47.0   | 54.0 | 35.0            |
+| MAP-Neo     | 7B     | 4T     | ✓             | 50.2   | 57.1 | 40.9            |
+| **Ours**    | 7B     | 0.14T  | ✓             | 44.1   | 38.3 | 26.6            |
+| **Ours**      | 7B     | 0.28T  | ✓             | 48.9   | 50.8 | 33.8            |
+| **Ours**        | 7B     | 2T     | ✓             | 54.7   | 60.7 | 40.4            |
 
 ## Getting Started
 To get started with DCLM, follow these steps:
@@ -72,7 +73,7 @@ If you are creating a rnew aw source:
 
 If you are selecting a raw source for downstream processing:
 
-- Identify the raw source you intend to use, which corresponds to a dataset reference (i.e., a JSON in [raw_sources][exp_data/datasets/raw_sources]).
+- Identify the raw source you intend to use, which corresponds to a dataset reference (i.e., a JSON in [raw_sources](exp_data/datasets/raw_sources).
 - The reference JSON contains the URL to the actual data and other metadata used as input for downstream processing.
 
 ## Processing the Data
@@ -115,6 +116,16 @@ To train a model using the tokenized dataset:
     ```bash
     torchrun --nproc-per-node 8 -m training.train --scale <scale> <tokenized_json> --logs <log_dir> [--remote-sync <s3_bucket>] [--chinchilla-multiplier <multiplier>] [--clean-exp] [--report-to-wandb]
     ```
+   
+You can expect the following training times per track:
+
+| Scale  | Model parameters | Train tokens | Train FLOPs | Train H100 hours | Pool size |
+|--------|------------------|--------------|-------------|------------------|-----------|
+| 400M-1x| 412M             | 8.2B         | 2.0e19      | 26               | 137B      |
+| 1B-1x  | 1.4B             | 28B          | 2.4e20      | 240              | 1.64T     |
+| 1B-5x  | 1.4B             | 138B         | 1.2e21      | 1200             | 8.20T     |
+| 7B-1x  | 6.9B             | 138B         | 5.7e21      | 3700             | 7.85T     |
+| 7B-2x  | 6.9B             | 276B         | 1.1e22      | 7300             | 15.7T     |
 
 2. **Monitor and manage your training jobs**:
     Use slurm sbatch scripts or Sagemaker for running experiments on various compute infrastructures.
@@ -139,9 +150,14 @@ You can now open a pull request to the main repository to share your results wit
 ## Contributing
 We welcome contributions to improve the DCLM framework. Please follow our guidelines for submitting pull requests and reporting issues.
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+## How to Cite Us
 
-**TODO** explain about creating manifests
-**TODO** Link to our models and datasets
-**TODO** Acknowledge the team members
+If you use our dataset or models in your research, please cite us as follows:
+
+```bibtex
+TBD
+```
+
+## License
+This project is licensed under the MIT License. See the [license](LICENSE.txt) file for details.
+
