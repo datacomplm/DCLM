@@ -20,6 +20,12 @@ DataComp-LM (DCLM) is a comprehensive framework designed for building and traini
 
 DCLM enables researchers to experiment with various dataset construction strategies across different compute scales, from 411M to 7B parameter models. Our baseline experiments show significant improvements in model performance through optimized dataset design.
 
+Already, DCLM has enabled the creation of several high quality datasets that perform well across scales and outperform all open datasets.
+![Accuracy vs compute tradeoff](assets/acc_vs_flops-1.png)
+<p align="center">
+  <em><b>Developing datasets for better models that are cheaper to train.</b> Using DataComp-LM, we develop a high-quality dataset, DCLM- BASELINE, which we use to train models with strong compute to performance tradeoffs. We compare on both (left) a C ORE set of tasks and on (right) MMLU 5-shot. Specifically DCLM- BASELINE (orange) shows favorable performance relative to both close-source models (crosses) and other open-source datasets and models (circles).</em>
+</p>
+
 **Submission workflow**:
 * **(A)** A participant chooses a scale, where larger scales reflect more target training tokens and/or model parameters. _Imo it is unclear why there is a 1x behind 1B but a 2x behind 7B_
 
@@ -31,20 +37,23 @@ DCLM enables researchers to experiment with various dataset construction strateg
 For more details, please refer to our [paper](https://placeholder-link-to-paper.com).
 
 ## Leaderboard
+
 The DCLM leaderboard showcases the performance of models trained on various scales and datasets. The leaderboard is updated regularly with the latest submissions from the community. To view the leaderboard.
 
-| Model       | Params | Tokens | Open dataset? | LowVar | MMLU | AggregatedScore |
-|-------------|--------|--------|---------------|--------|------|-----------------|
-| Llama2      | 7B     | 2T     | ✗             | 49.2   | 45.8 | 37.5            |
-| Mistral-0.3 | 7B     | ?      | ✗             | 57.0   | 62.7 | 46.1            |
-| Llama3      | 8B     | 15T    | ✗             | 57.6   | 66.2 | 46.3            |
-| Gemma       | 7B     | 6T     | ✗             | 57.8   | 64.3 | 44.6            |
-| Falcon      | 7B     | 1T     | ✓             | 44.1   | 27.4 | 25.1            |
-| OLMo-1.7    | 7B     | 2T     | ✓             | 47.0   | 54.0 | 35.0            |
-| MAP-Neo     | 7B     | 4T     | ✓             | 50.2   | 57.1 | 40.9            |
-| **Ours**    | 7B     | 0.14T  | ✓             | 44.1   | 38.3 | 26.6            |
-| **Ours**      | 7B     | 0.28T  | ✓             | 48.9   | 50.8 | 33.8            |
-| **Ours**        | 7B     | 2T     | ✓             | 54.7   | 60.7 | 40.4            |
+| Model          | Params | Tokens | Open dataset? | CORE | MMLU | EXTENDED |
+|----------------|--------|--------|---------------|------|------|----------|
+| Llama2         | 7B     | 2T     | ✗             | 49.2 | 45.8 | 37.5     |
+| Mistral-0.3    | 7B     | ?      | ✗             | 57.0 | 62.7 | 45.1     |
+| Llama3         | 8B     | 15T    | ✗             | 57.6 | **66.2** | **46.3** |
+| Gemma          | 8B     | 6T     | ✗             | **57.8** | 64.3 | 44.6     |
+| <hr>           |        |        |               |      |      |          |
+| Falcon         | 7B     | 1T     | ✓             | 44.1 | 27.4 | 25.1     |
+| OLMo-1.7       | 7B     | 2T     | ✓             | 47.0 | 54.0 | 35.0     |
+| MAP-Neo        | 7B     | 4T     | ✓             | 50.2 | 57.1 | 40.4     |
+| <hr>           |        |        |               |      |      |          |
+| **DCLM-BASELINE** | 7B     | 0.14T  | ✓             | 44.1 | 38.3 | 25.0     |
+| **DCLM-BASELINE** | 7B     | 0.28T  | ✓             | 48.9 | 50.8 | 31.8     |
+| **DCLM-BASELINE** | 7B     | 2.2T   | ✓             | 55.9 | 62.7 | 43.8     |
 
 ## Getting Started
 To get started with DCLM, follow these steps:
