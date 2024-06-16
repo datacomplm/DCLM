@@ -23,22 +23,27 @@ DCLM enables researchers to experiment with various dataset construction strateg
 Already, DCLM has enabled the creation of several high quality datasets that perform well across scales and outperform all open datasets.
 ![Accuracy vs compute tradeoff](assets/acc_vs_flops-1.png)
 <p align="center">
-  <em><b>Developing datasets for better models that are cheaper to train.</b> Using DataComp-LM, we develop a high-quality dataset, DCLM- BASELINE, which we use to train models with strong compute to performance tradeoffs. We compare on both (left) a C ORE set of tasks and on (right) MMLU 5-shot. Specifically DCLM- BASELINE (orange) shows favorable performance relative to both close-source models (crosses) and other open-source datasets and models (circles).</em>
+  <em><b>Developing datasets for better models that are cheaper to train.</b> Using DataComp-LM, we develop a high-quality dataset, DCLM-BASELINE, which we use to train models with strong compute performance tradeoffs. We compare on both a Core set of tasks (left) and on MMLU 5-shot (right). DCLM-BASELINE (orange) shows favorable performance relative to both close-source models (crosses) and other open-source datasets and models (circles).</em>
 </p>
 
 **Submission workflow**:
-* **(A)** A participant chooses a scale, where larger scales reflect more target training tokens and/or model parameters. _Imo it is unclear why there is a 1x behind 1B but a 2x behind 7B_
+* **(A)** A participant chooses a scale, where larger scales reflect more target training tokens and/or model parameters. 
+The smallest scale is 400m-1x, a 400m parameter model trained compute optimally (1x), and the largest scale is 7B-2x, a 7B parameter model trained with twice the tokens required for compute optimallity. 
 
 * **(B)** A participant filters a pool of data (filtering track) or mixes data of their own (bring your own data track) to create a dataset.
 
-* **(C)** Using the curated dataset, a participant trains a language model, with standardized training code and scale-specific hyperparameters, which is then **(D)** evaluated on 53 downstream tasks to judge dataset quality.
+* **(C)** Using the curated dataset, a participant trains a language model, with standardized training code and scale-specific hyperparameters, which is then 
+
+* **(D)** evaluated on 53 downstream tasks to judge dataset quality.
 ![Workflow](assets/workflow_dclm.png)
 
 For more details, please refer to our [paper](https://placeholder-link-to-paper.com).
 
 ## Leaderboard
 
-The DCLM leaderboard showcases the performance of models trained on various scales and datasets. The leaderboard is updated regularly with the latest submissions from the community. To view the leaderboard.
+The DCLM [leaderboard](https://placeholder-link-to-leaderboard.com) showcases the performance of models trained on various scales and datasets. The leaderboard is updated regularly with the latest submissions from the community.
+
+Below are comparisions of our model with others in the 7B regime.
 
 | Model          | Params | Tokens | Open dataset? | CORE | MMLU | EXTENDED |
 |----------------|--------|--------|---------------|------|------|----------|
@@ -50,6 +55,9 @@ The DCLM leaderboard showcases the performance of models trained on various scal
 | Falcon         | 7B     | 1T     | ✓             | 44.1 | 27.4 | 25.1     |
 | OLMo-1.7       | 7B     | 2T     | ✓             | 47.0 | 54.0 | 35.0     |
 | MAP-Neo        | 7B     | 4T     | ✓             | 50.2 | 57.1 | 40.4     |
+| <hr>           |        |        |               |      |      |          |
+| FineWeb edu    | 7B     | 0.14T  | ✓             | 38.7 | 26.3 | 22.1     |
+| FineWeb edu    | 7B     | 0.28T  | ✓             | 41.9 | 37.3 | 24.5     |
 | <hr>           |        |        |               |      |      |          |
 | **DCLM-BASELINE** | 7B     | 0.14T  | ✓             | 44.1 | 38.3 | 25.0     |
 | **DCLM-BASELINE** | 7B     | 0.28T  | ✓             | 48.9 | 50.8 | 31.8     |
@@ -68,13 +76,19 @@ To get started with DCLM, follow these steps:
     ```bash
     pip install -r requirements.txt
     ```
+    Before installing the dependencies, make sure cmake, build-essential, and g++ are installed, e.g., by installing:
+    ````bash
+    apt install cmake build-essential
+    apt install g++-9
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 90
+    ```
 
 3. **Set up your environment**:
     DCLM uses AWS for storage and possible as a compute backend, and ray for distributed processing.
     Ensure you have the necessary environment variables and configurations for AWS and Ray clusters.
 
 ## Selecting Raw Sources
-If you are creating a rnew aw source:
+If you are creating a new source:
 
 - Ensure your data is stored in JSONL format (ideally compressed with zstandard).
 - Key names should be consistent with those in [here](baselines/core/constants.py).
@@ -153,7 +167,7 @@ Evaluate trained models using the following methods:
     ```
 
 ## Submission
-When you have finsihed training and evaluating your model, you should have a model eval json file unde [exp_data/evals](exp_data/evals). 
+When you finished training and evaluating your model, a model eval json file has been generated and is at [exp_data/evals](exp_data/evals). 
 You can now open a pull request to the main repository to share your results with the team and submit it to the leaderboard.
 
 ## Contributing
