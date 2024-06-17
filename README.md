@@ -16,7 +16,7 @@
 
 ## Introduction
 
-DataComp-LM (DCLM) is a comprehensive framework designed for building and training large language models (LLMs) with diverse datasets. It offers a standardized corpus of over 300T unfiltered tokens from CommonCrawl, effective pretraining recipes based on the open_lm framework, and an extensive suite of over 50 evaluations. This repository provides tools and guidelines for processing raw data, tokenizing, shuffling, training models, and evaluating their performance. 
+[DataComp-LM (DCLM)](https://datacomp.ai/dclm/) is a comprehensive framework designed for building and training large language models (LLMs) with diverse datasets. It offers a standardized corpus of over 300T unfiltered tokens from CommonCrawl, effective pretraining recipes based on the open_lm framework, and an extensive suite of over 50 evaluations. This repository provides tools and guidelines for processing raw data, tokenizing, shuffling, training models, and evaluating their performance. 
 
 DCLM enables researchers to experiment with various dataset construction strategies across different compute scales, from 411M to 7B parameter models. Our baseline experiments show significant improvements in model performance through optimized dataset design.
 
@@ -41,34 +41,38 @@ For more details, please refer to our [paper](https://placeholder-link-to-paper.
 
 ## Leaderboard
 
-The DCLM [leaderboard](https://placeholder-link-to-leaderboard.com) showcases the performance of models trained on various scales and datasets. The leaderboard is updated regularly with the latest submissions from the community.
+The DCLM [leaderboard](https://datacomp.ai/dclm/leaderboard) showcases the performance of models trained on various scales and datasets. The leaderboard is updated regularly with the latest submissions from the community.
 
 Below are comparisions of our model with others in the 7B regime.
 
-| Model          | Params | Tokens | Open dataset? | CORE | MMLU | EXTENDED |
-|----------------|--------|--------|---------------|------|------|----------|
-| Llama2         | 7B     | 2T     | ✗             | 49.2 | 45.8 | 37.5     |
-| Mistral-0.3    | 7B     | ?      | ✗             | 57.0 | 62.7 | 45.1     |
-| Llama3         | 8B     | 15T    | ✗             | 57.6 | **66.2** | **46.3** |
-| Gemma          | 8B     | 6T     | ✗             | **57.8** | 64.3 | 44.6     |
-| <hr>           |        |        |               |      |      |          |
-| Falcon         | 7B     | 1T     | ✓             | 44.1 | 27.4 | 25.1     |
-| OLMo-1.7       | 7B     | 2T     | ✓             | 47.0 | 54.0 | 35.0     |
-| MAP-Neo        | 7B     | 4T     | ✓             | 50.2 | 57.1 | 40.4     |
-| <hr>           |        |        |               |      |      |          |
-| FineWeb edu    | 7B     | 0.14T  | ✓             | 38.7 | 26.3 | 22.1     |
-| FineWeb edu    | 7B     | 0.28T  | ✓             | 41.9 | 37.3 | 24.5     |
-| <hr>           |        |        |               |      |      |          |
-| **DCLM-BASELINE** | 7B     | 0.14T  | ✓             | 44.1 | 38.3 | 25.0     |
-| **DCLM-BASELINE** | 7B     | 0.28T  | ✓             | 48.9 | 50.8 | 31.8     |
-| **DCLM-BASELINE** | 7B     | 2.2T   | ✓             | 55.9 | 62.7 | 43.8     |
+| Model         | Params | Tokens | Open dataset? | CORE     | MMLU     | EXTENDED |
+|---------------|--------|--------|---------------|----------|----------|----------|
+| **Open weights, closed datasets** |        |        |               |          |          |          |
+| Llama2        | 7B     | 2T     | ✗             | 49.2     | 45.8     | 34.1     |
+| DeepSeek      | 7B     | 2T     | ✗             | 50.7     | 48.5     | 35.3     |
+| Mistral-0.3   | 7B     | ?      | ✗             | 57.0     | 62.7     | 45.1     |
+| QWEN-2        | 7B     | ?      | ✗             | 57.5     | **71.9** | 50.5     |
+| Llama3        | 8B     | 15T    | ✗             | 57.6     | 66.2     | 46.3     |
+| Gemma         | 8B     | 6T     | ✗             | 57.8     | 64.3     | 44.6     |
+| Phi-3         | 7B     | ?      | ✗             | **61.0** | 69.9     | **57.9** |
+| **Open weights, open datasets** |        |        |               |          |          |          |
+| Falcon        | 7B     | 1T     | ✓             | 44.1     | 27.4     | 25.1     |
+| OLMo-1.7      | 7B     | 2.1T   | ✓             | 47.0     | 54.0     | 34.2     |
+| MAP-Neo       | 7B     | 4.5T   | ✓             | **50.2** | **57.1** | **40.4** |
+| **Models we trained** |        |        |               |          |          |          |
+| FineWeb edu   | 7B     | 0.14T  | ✓             | 38.7     | 26.3     | 22.1     |
+| FineWeb edu   | 7B     | 0.28T  | ✓             | 41.9     | 37.3     | 24.5     |
+| **DCLM-BASELINE** | 7B     | 0.14T  | ✓             | 44.1     | 38.3     | 25.0     |
+| **DCLM-BASELINE** | 7B     | 0.28T  | ✓             | 48.9     | 50.8     | 31.8     |
+| **DCLM-BASELINE** | 7B     | 2.6T   | ✓             | **57.1** | **63.7** | **45.4** |
+
 
 ## Getting Started
 To get started with DCLM, follow these steps:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-repo/DCLM.git
+    git clone https://github.com/mlfoundations/DCLM.git
     cd DCLM
     ```
 
