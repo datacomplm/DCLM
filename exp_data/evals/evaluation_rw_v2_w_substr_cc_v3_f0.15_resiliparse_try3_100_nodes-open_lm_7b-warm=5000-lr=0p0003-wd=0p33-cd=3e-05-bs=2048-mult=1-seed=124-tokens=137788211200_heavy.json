@@ -12,7 +12,6 @@
             "gsm8k": 0.012130402028560638,
             "agi_eval_sat_math": 0.00909090880304575,
             "aqua": 0.01224489789456129,
-            "svamp": 0.07000000029802322,
             "bigbench_qa_wikidata": 0.6897298097610474,
             "arc_easy": 0.7032828330993652,
             "arc_challenge": 0.39675769209861755,
@@ -55,7 +54,13 @@
             "winogender_mc_male": 0.5333333611488342,
             "enterprise_pii_classification": 0.5184094309806824,
             "bbq": 0.4496210434220054,
-            "mmlu_fewshot": 0.25379665222084313
+            "mmlu_fewshot": 0.25379665222084313,
+            "gsm8k_cot": 0.012130402028560638,
+            "agi_eval_sat_math_cot": 0.013636363670229912,
+            "aqua_cot": 0.008163264952600002,
+            "svamp_cot": 0.07000000029802322,
+            "gpqa_main": 0.2232142835855484,
+            "gpqa_diamond": 0.2070707082748413
         }
     },
     "aggregated_task_categories_centered": {
@@ -63,11 +68,11 @@
         "language understanding": 0.3814440636554419,
         "reading comprehension": 0.22052542907757716,
         "safety": -0.04098475385795941,
-        "symbolic problem solving": 0.10963839565718066,
-        "world knowledge": 0.28263202957286127
+        "symbolic problem solving": 0.08733015887856006,
+        "world knowledge": 0.2168102892396743
     },
-    "aggregated_centered_results": 0.22588863168239587,
-    "aggregated_results": 0.4135823880520242,
+    "aggregated_centered_results": 0.20052344105350703,
+    "aggregated_results": 0.37684126908028187,
     "rw_small": 0.653040831287702,
     "rw_small_centered": 0.40227915320480084,
     "95%_CI_above": 0.4964611163387051,
@@ -78,5 +83,5 @@
     "low_variance_datasets_centered": 0.3827974247050241,
     "model_uuid": "f6d1a6f1-a351-4e86-b499-f6a435210568",
     "_filename": "exp_data/evals/evaluation_rw_v2_w_substr_cc_v3_f0.15_resiliparse_try3_100_nodes-open_lm_7b-warm=5000-lr=0p0003-wd=0p33-cd=3e-05-bs=2048-mult=1-seed=124-tokens=137788211200_heavy.json",
-    "missing tasks": "['gsm8k_cot', 'agi_eval_sat_math_cot', 'aqua_cot', 'svamp_cot', 'gpqa_main', 'gpqa_diamond']"
+    "missing tasks": "[]"
 }

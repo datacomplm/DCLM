@@ -12,7 +12,6 @@
             "gsm8k": 0.015163002535700798,
             "agi_eval_sat_math": 0.0181818176060915,
             "aqua": 0.020408162847161293,
-            "svamp": 0.09000000357627869,
             "bigbench_qa_wikidata": 0.6870232820510864,
             "arc_easy": 0.7138047218322754,
             "arc_challenge": 0.4155290126800537,
@@ -57,7 +56,11 @@
             "enterprise_pii_classification": 0.5063328146934509,
             "bbq": 0.45916544036431745,
             "gpqa_main": 0.2410714328289032,
-            "gpqa_diamond": 0.21212121844291687
+            "gpqa_diamond": 0.21212121844291687,
+            "gsm8k_cot": 0.02350265346467495,
+            "agi_eval_sat_math_cot": 0.027272727340459824,
+            "aqua_cot": 0.016326529905200005,
+            "svamp_cot": 0.09000000357627869
         }
     },
     "aggregated_task_categories_centered": {
@@ -65,11 +68,11 @@
         "language understanding": 0.3954715008690658,
         "reading comprehension": 0.21162233456740515,
         "safety": -0.017250887372277007,
-        "symbolic problem solving": 0.11531653377235603,
+        "symbolic problem solving": 0.09503891905216864,
         "world knowledge": 0.2409717854735447
     },
-    "aggregated_centered_results": 0.22581235877689956,
-    "aggregated_results": 0.4120390374243164,
+    "aggregated_centered_results": 0.21173410366706966,
+    "aggregated_results": 0.38390593864298334,
     "rw_small": 0.6578202048937479,
     "rw_small_centered": 0.4096264065357677,
     "95%_CI_above": 0.5016220682917477,
@@ -80,5 +83,5 @@
     "low_variance_datasets_centered": 0.39670737714276805,
     "model_uuid": "e99cfd37-66fc-42a0-a561-40809ae31290",
     "_filename": "exp_data/evals/evaluation_rw_v2_w_substr_cc_v3_f0.15_resiliparse_shard0-open_lm_7b_swiglutorch-warm=5000-lr=0p001-wd=0p1-cd=3e-05-bs=2048-mult=1-seed=125-tokens=137788211200_heavy.json",
-    "missing tasks": "['gsm8k_cot', 'agi_eval_sat_math_cot', 'aqua_cot', 'svamp_cot']"
+    "missing tasks": "[]"
 }
